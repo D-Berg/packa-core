@@ -1,3 +1,9 @@
 {
-    "workspace.library": ["."],
+    "workspace.library": [ "stubs.lua" ],
+    "runtime.version": "Lua 5.5",
+    "runtime.builtin": {
+        "os": "disable",
+        "io": "disable",
+        "package": "disable"
+    }
 }
