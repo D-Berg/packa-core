@@ -12,7 +12,7 @@ local env = {}
 ---@param key string
 ---@param value string
 ---@return boolean, string?
-function env:set(key, value) end
+function env.set(key, value) end
 
 ---@class Package
 ---@field name string
@@ -40,4 +40,4 @@ local b = {}
 ---@param ... string
 ---@return boolean? success
 ---@return string? err_msg
-function b:run(cmd, ...) end
+function b.run(cmd, ...) end
