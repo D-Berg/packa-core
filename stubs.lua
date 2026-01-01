@@ -14,9 +14,12 @@ local env = {}
 ---@return boolean, string?
 function env.set(key, value) end
 
+---Represents a software package with metadata and source verification.
 ---@class Package
+---@field new function
 ---@field name string
 ---@field version string
+---@field desc string
 ---@field url string Url to source archive
 ---@field hash string Blake3 hash of source archive
 ---@field license string
@@ -33,6 +36,7 @@ function env.set(key, value) end
 ---4. Install files into `b.prefix`
 ---@field build fun(b: Build)
 
+
 ---@class Build
 local b = {}
 ---Executes a shell command
@@ -41,3 +45,19 @@ local b = {}
 ---@return boolean? success
 ---@return string? err_msg
 function b.run(cmd, ...) end
+
+---@type Package
+Package = {
+    new = function() end,
+    name = "",
+    version = "",
+    desc = "",
+    url = "",
+    hash = "",
+    license = "",
+    build = function(b) end,
+}
+---@return Package
+function Package.new()
+    return {}
+end

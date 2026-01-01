@@ -5,5 +5,8 @@
         "os": "disable",
         "io": "disable",
         "package": "disable"
-    }
+    },
+    "diagnostics.enable": true,
+    "diagnostics.globals": ["Package"],
+    "diagnostics.strictMode": true
 }
