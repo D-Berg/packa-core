@@ -17,8 +17,8 @@ function env:set(key, value) end
 ---@class Package
 ---@field name string
 ---@field version string
----@field url string
----@field hash string
+---@field url string Url to source archive
+---@field hash string Blake3 hash of source archive
 ---@field license string
 ---The core logic for compiling and installing the package.
 ---
