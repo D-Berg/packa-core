@@ -20,6 +20,7 @@ function env.set(key, value) end
 ---@field name string
 ---@field version string
 ---@field desc string
+---@field homepage string
 ---@field url string Url to source archive
 ---@field hash string Blake3 hash of source archive
 ---@field license string
@@ -55,7 +56,7 @@ Package = {
     url = "",
     hash = "",
     license = "",
-    build = function(b) end,
+    build = function() end,
 }
 ---@return Package
 function Package.new()
