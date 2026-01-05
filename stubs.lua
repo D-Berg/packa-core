@@ -14,9 +14,17 @@ local env = {}
 ---@return boolean, string?
 function env.set(key, value) end
 
+---@param key string
+---@return string?, string?
+function env.get(key) end
+
+---@param key string
+---@param value string
+---@return boolean, string?
+function env.append(key, value) end
+
 ---Represents a software package with metadata and source verification.
 ---@class Package
----@field new function
 ---@field name string
 ---@field version string
 ---@field desc string
@@ -24,19 +32,7 @@ function env.set(key, value) end
 ---@field url string Url to source archive
 ---@field hash string Blake3 hash of source archive
 ---@field license string
----The core logic for compiling and installing the package.
----
----This function is executed after the source has been downloaded and
----extracted into a temporary directory. The working directory is
----automatically set to the source root.
----
----### Typical Steps:
----1. Set environment variables via `b.env:set()`
----2. Run configuration scripts (e.g., `./configure`)
----3. Run build tools (e.g., `make`)
----4. Install files into `b.prefix`
 ---@field build fun(b: Build)
-
 
 ---@class Build
 local b = {}
@@ -47,18 +43,7 @@ local b = {}
 ---@return string? err_msg
 function b.run(cmd, ...) end
 
----@type Package
-Package = {
-    new = function() end,
-    name = "",
-    version = "",
-    desc = "",
-    url = "",
-    hash = "",
-    license = "",
-    build = function() end,
-}
+---This global function will provide the type checking
+---@param data Package
 ---@return Package
-function Package.new()
-    return {}
-end
+function pkg(data) return data end

@@ -1,12 +1,31 @@
 {
-    "workspace.library": [ "stubs.lua" ],
-    "runtime.version": "Lua 5.5",
-    "runtime.builtin": {
-        "os": "disable",
-        "io": "disable",
-        "package": "disable"
+  "workspace.library": [ "stubs.lua" ],
+  "runtime.version": "Lua 5.5",
+  "runtime.builtin": {
+    "os": "disable",
+    "io": "disable",
+    "package": "disable"
+  },
+  "runtime.special": {
+    "file": "manifests/**/*.lua",
+    "return": "Package"
+  },
+
+  "diagnostics": {
+    "enable": true,
+    "globals": ["Package"],
+    "strictMode": true,
+    "neededFileStatus": {
+      "missing-fields": "Any",
+      "undefined-global": "Any",
+      "global": "Any"
     },
-    "diagnostics.enable": true,
-    "diagnostics.globals": ["Package"],
-    "diagnostics.strictMode": true
+    "severity": {
+      "missing-fields": "Warning",
+      "undefined-global": "Error",
+      "global": "Error",
+
+    }
+
+  }
 }
